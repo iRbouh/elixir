@@ -1,5 +1,6 @@
 import map from 'vinyl-map';
 import minifier from './utilities/minifier';
+import preprocess from  'gulp-preprocess';
 
 class Task {
 
@@ -256,6 +257,13 @@ class Task {
      */
     stream() {
         return map(function () {});
+    }
+
+    /**
+     * Environment variables preprocessor
+     */
+    dotEnvPreprocess() {
+        return preprocess({context: process.env});
     }
 }
 

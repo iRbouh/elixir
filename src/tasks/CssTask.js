@@ -21,6 +21,7 @@ class CssTask extends Elixir.Task {
         return (
             gulp
             .src(this.src.path)
+            .pipe(this.dotEnvPreprocess())
             .pipe(this.initSourceMaps())
             .pipe(this.compile())
             .on('error', this.onError())

@@ -43,6 +43,9 @@ function init() {
     if (! Elixir.config.notifications) {
         process.env.DISABLE_NOTIFIER = true;
     }
+    
+    //Load Env variables from .env
+    require('dotenv').config({silent: true});
 
     Elixir.Notification = require('./Notification').default;
 };
